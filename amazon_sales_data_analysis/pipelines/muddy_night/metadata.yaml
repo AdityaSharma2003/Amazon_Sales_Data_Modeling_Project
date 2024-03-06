@@ -1,0 +1,64 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - amazon_transform
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: amazon_load
+  retry_config: null
+  status: executed
+  type: data_loader
+  upstream_blocks: []
+  uuid: amazon_load
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - amazon_export
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: amazon_transform
+  retry_config: null
+  status: executed
+  type: transformer
+  upstream_blocks:
+  - amazon_load
+  uuid: amazon_transform
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: amazon_export
+  retry_config: null
+  status: executed
+  type: data_exporter
+  upstream_blocks:
+  - amazon_transform
+  uuid: amazon_export
+callbacks: []
+conditionals: []
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: muddy night
+notification_config: {}
+retry_config: {}
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-03-05 14:22:09'
+uuid: muddy_night
+widgets: []

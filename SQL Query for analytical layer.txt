@@ -1,0 +1,23 @@
+create or replace table banded-cable-393712.amazon_data_engineering_yt.tbl_analytics as(
+select
+f.product_id,
+pd.product_name,
+pd.about_product,
+pc.category,
+f.discounted_price,
+f.actual_price,
+f.discount_percentage,
+ud.user_id,
+ud.user_name,
+r.rating,
+r.rating_count,
+pr.review_title,
+pr.review_content
+from
+banded-cable-393712.amazon_data_engineering_yt.fact_table f
+join banded-cable-393712.amazon_data_engineering_yt.product_description_dim pd on pd.product_description_id=f.product_description_id
+join banded-cable-393712.amazon_data_engineering_yt.user_description_dim ud on ud.user_description_id=f.user_description_id
+join banded-cable-393712.amazon_data_engineering_yt.product_review_dim pr on pr.product_review_id=f.product_review_id
+join banded-cable-393712.amazon_data_engineering_yt.product_category_dim pc on pc.product_category_id=f.product_category_id
+join banded-cable-393712.amazon_data_engineering_yt.rating_dim r on r.rating_id=f.rating_id)
+;
